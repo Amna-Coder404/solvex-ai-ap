@@ -26,4 +26,13 @@ export const st = StyleSheet.create({
   optText: { flex: 1, color: colors.text, fontSize: 15, lineHeight: 21 },
   feedback: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 4 },
   feedbackText: { fontWeight: '800', flex: 1 },
+  repeatBadge: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#FFF3CD',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 12,
+    marginBottom: 10,
+  },
+  repeatText: { fontSize: 12, fontWeight: '600', color: '#8A6D00' },
 });

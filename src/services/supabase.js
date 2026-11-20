@@ -21,11 +21,8 @@ export async function ensureUser() {
     if (!supabase) return null;
     try {
         const { data } = await supabase.auth.getSession();
-        if (data?.session?.user) return data.session.user.id;
-        const res = await supabase.auth.signInAnonymously();
-        if (res.error) throw res.error;
-        return res.data.user?.id ?? null;
+        return data?.session?.user?.id ?? null; // koi anonymous sign-in nahi
     } catch {
-        return null; // offline or not configured -> stay local, retry next sync
+        return null;
     }
 }

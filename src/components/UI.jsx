@@ -47,8 +47,20 @@ const VARIANTS = {
     outline: { bg: 'transparent', fg: colors.primary, border: colors.primary },
 };
 
-export function Button({ title, onPress, variant = 'primary', disabled, loading, style, icon }) {
+export function Button({
+    title,
+    onPress,
+    variant = 'primary',
+    disabled,
+    loading,
+    style,
+    textStyle,
+    color, // optional custom text/icon color override
+    icon,
+}) {
     const v = VARIANTS[variant] || VARIANTS.primary;
+    const fg = color || textStyle?.color || v.fg;
+
     return (
         <PressableScale
             onPress={onPress}
@@ -63,17 +75,16 @@ export function Button({ title, onPress, variant = 'primary', disabled, loading,
             ]}
         >
             {loading ? (
-                <ActivityIndicator color={v.fg} />
+                <ActivityIndicator color={fg} />
             ) : (
                 <>
-                    {icon ? <Ionicons name={icon} size={18} color={v.fg} /> : null}
-                    <Text style={[ui.btnText, { color: v.fg }]}>{title}</Text>
+                    {icon ? <Ionicons name={icon} size={18} color={fg} /> : null}
+                    <Text style={[ui.btnText, { color: fg }, textStyle]}>{title}</Text>
                 </>
             )}
         </PressableScale>
     );
 }
-
 /** Card — pass onPress to make it a tappable animated card. */
 export function Card({ children, style, onPress }) {
     if (onPress) {

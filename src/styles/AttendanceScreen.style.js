@@ -17,7 +17,15 @@ export const st = StyleSheet.create({
   },
   streak: { fontSize: 30, fontWeight: '800', color: '#fff', letterSpacing: -0.5 },
   heroSub: { color: colors.onPrimarySub, fontSize: 13, fontWeight: '600' },
-  btn: { alignSelf: 'stretch', marginTop: 14, backgroundColor: '#fff' },
+  btn: {
+    alignSelf: 'stretch',
+    marginTop: 14,
+    backgroundColor: colors.bg, // '#fff' ki jagah theme bg (ya dark/card color)
+  },
+  btnText: {
+    color: colors.primary, // taake white/light bg par text clear dikhe
+    fontWeight: '800',
+  },
   done: {
     alignSelf: 'stretch', marginTop: 14, flexDirection: 'row', gap: 8, alignItems: 'center',
     justifyContent: 'center', paddingVertical: 15, borderRadius: radius.md,

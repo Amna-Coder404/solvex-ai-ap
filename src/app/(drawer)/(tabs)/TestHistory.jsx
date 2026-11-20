@@ -1,12 +1,12 @@
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { FlatList, Text, View } from 'react-native';
-import { Card, Empty, Enter, IconBadge } from '../../components/UI';
-import { getSubject } from '../../config';
-import { colors, getSubjectTheme } from '../../constants/theme';
-import { getTests, syncAll } from '../../services/storage';
-import { st } from '../../styles/TestHistoryScreen.style';
-import { formatDateTime } from '../../utils/utils';
+import { Card, Empty, Enter, IconBadge } from '../../../components/UI';
+import { getSubject } from '../../../config';
+import { colors, getSubjectTheme } from '../../../constants/theme';
+import { getTests, syncAll } from '../../../services/storage';
+import { st } from '../../../styles/TestHistoryScreen.style';
+import { formatDateTime } from '../../../utils/utils';
 
 export default function TestHistoryScreen() {
   const [tests, setTests] = useState([]);

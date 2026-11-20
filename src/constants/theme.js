@@ -57,6 +57,7 @@ export const subjectTheme = {
     math: { fg: '#5648E8', bg: '#EEEBFF' },
     physics: { fg: '#0EA5E9', bg: '#E0F4FE' },
     computer: { fg: '#12B76A', bg: '#DCFAE6' },
-    english: { fg: '#F79009', bg: '#FEF0C7' },
+    english: { fg: '#E6F4FE', bg: '#FEF0C7' },
+    urdu: { fg: '#0c3500', bg: '#e7fcf6' },
 };
 export const getSubjectTheme = (mode) => subjectTheme[mode] || subjectTheme.math;

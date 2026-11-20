@@ -1,28 +1,21 @@
 import { Ionicons } from '@expo/vector-icons';
-import { useFocusEffect, useRouter } from 'expo-router';
-import { useCallback, useState } from 'react';
+import { useRouter } from 'expo-router';
+import { useState } from 'react';
 import { Text, TextInput, View } from 'react-native';
 import { Button, Card, Enter, IconBadge, PressableScale } from '../components/UI';
 import { SUBJECTS } from '../config';
 import { colors, getSubjectTheme } from '../constants/theme';
-import { getNoteCount } from '../services/storage';
+import { getBankCount } from '../services/mcqBank';
 import { st } from '../styles/TestSetupScreen.style';
 
 export default function TestSetupScreen() {
 
   const router = useRouter();
   const [mode, setMode] = useState('math');
-  const [counts, setCounts] = useState({});
   const [qty, setQty] = useState('1');
 
-  useFocusEffect(
-    useCallback(() => {
-      (async () => {
-        const entries = await Promise.all(SUBJECTS.map(async (s) => [s.mode, await getNoteCount(s.mode)]));
-        setCounts(Object.fromEntries(entries));
-      })();
-    }, [])
-  );
+  // Offline bank: counts come straight from src/data/mcqs
+  const counts = Object.fromEntries(SUBJECTS.map((s) => [s.mode, getBankCount(s.mode)]));
 
   const max = counts[mode] ?? 0;
   const clamp = (v) => Math.max(1, Math.min(max, v));
@@ -55,7 +48,7 @@ export default function TestSetupScreen() {
                   <IconBadge name={s.icon} color={on ? '#fff' : t.fg} bg={on ? t.fg : t.bg} size={42} />
                   <View>
                     <Text style={st.subjName}>{s.label}</Text>
-                    <Text style={st.subjCount}>{counts[s.mode] ?? 0} saved notes</Text>
+                    <Text style={st.subjCount}>{counts[s.mode] ?? 0} questions</Text>
                   </View>
                 </PressableScale>
               );
@@ -68,7 +61,7 @@ export default function TestSetupScreen() {
         <Card>
           <Text style={st.label}>2. Number of questions</Text>
           {max === 0 ? (
-            <Text style={st.warn}>You have no saved notes in this subject yet. Save some from the AI tutor first.</Text>
+            <Text style={st.warn}>No questions in this subject yet.</Text>
           ) : (
             <>
               <View style={st.stepper}>
@@ -80,7 +73,7 @@ export default function TestSetupScreen() {
                   <Ionicons name="add" size={28} color={colors.primary} />
                 </PressableScale>
               </View>
-              <Text style={st.hint}>Choose 1 to {max} (your saved notes)</Text>
+              <Text style={st.hint}>Choose 1 to {max} questions</Text>
             </>
           )}
         </Card>

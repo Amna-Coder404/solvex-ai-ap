@@ -5,10 +5,9 @@ import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 import Animated, { FadeInRight } from 'react-native-reanimated';
 import { Button, Enter, PressableScale, ProgressBar } from '../components/UI';
 import { colors } from '../constants/theme';
-import { generateMCQs } from '../services/groq';
-import { getNotes, saveTest } from '../services/storage';
+import { getMcqs } from '../services/mcqBank';
+import { saveTest } from '../services/storage';
 import { st } from '../styles/QuizScreen.style';
-import { shuffle } from '../utils/utils';
 
 export default function QuizScreen() {
   const router = useRouter();
@@ -22,20 +21,17 @@ export default function QuizScreen() {
   const [answers, setAnswers] = useState([]);
   const [saving, setSaving] = useState(false);
 
-  const load = useCallback(async () => {
+  const load = useCallback(() => {
     setStatus('loading');
     setError('');
-    try {
-      const notes = await getNotes(mode);
-      const picked = shuffle(notes).slice(0, Math.min(count, notes.length)); // Fisher-Yates random pick
-      if (!picked.length) throw new Error('No saved notes for this subject.');
-      const qs = await generateMCQs(mode, picked, picked.length); // the only AI call of the test
-      setQuestions(qs); setI(0); setSelected(null); setAnswers([]);
-      setStatus('ready');
-    } catch (e) {
-      setError(e.message || 'Something went wrong.');
+    const qs = getMcqs(mode, count); // offline, from src/data/mcqs
+    if (!qs.length) {
+      setError('No questions for this subject yet.');
       setStatus('error');
+      return;
     }
+    setQuestions(qs); setI(0); setSelected(null); setAnswers([]);
+    setStatus('ready');
   }, [mode, count]);
 
   useEffect(() => { load(); }, [load]);
@@ -44,7 +40,7 @@ export default function QuizScreen() {
     return (
       <View style={st.center}>
         <ActivityIndicator size="large" color={colors.primary} />
-        <Text style={st.loadText}>Generating your test…</Text>
+        <Text style={st.loadText}>Preparing your test…</Text>
       </View>
     );
   }
@@ -52,7 +48,6 @@ export default function QuizScreen() {
     return (
       <View style={st.center}>
         <Text style={st.errText}>{error}</Text>
-        <Text style={st.errSub}>Generating a test needs an internet connection.</Text>
         <Button title="Try again" icon="refresh" onPress={load} />
         <Button title="Go back" variant="outline" onPress={() => router.back()} style={{ marginTop: 10 }} />
       </View>
@@ -66,7 +61,7 @@ export default function QuizScreen() {
   const next = async () => {
     const rec = {
       question: q.question, options: q.options, correctAnswer: q.correctAnswer,
-      selected, isCorrect: selected === q.correctAnswer, // instant local check, no API call
+      selected, isCorrect: selected === q.correctAnswer, // instant local check
     };
     const all = [...answers, rec];
     if (!last) { setAnswers(all); setI(i + 1); setSelected(null); return; }
@@ -101,6 +96,13 @@ export default function QuizScreen() {
 
       <Animated.View key={i} entering={FadeInRight.duration(320)} style={{ gap: 12 }}>
         <View style={st.qCard}>
+          <View style={[st.repeatBadge, q.repeated <= 1 && { backgroundColor: '#E8EEF5' }]}>
+            <Text style={[st.repeatText, q.repeated <= 1 && { color: '#4A5A6E' }]}>
+              {q.repeated > 1
+                ? `🔁 Repeated ${q.repeated} times in past papers`
+                : 'Asked 1 time in past papers'}
+            </Text>
+          </View>
           <Text style={st.question}>{q.question}</Text>
         </View>
         {q.options.map((opt, idx) => {

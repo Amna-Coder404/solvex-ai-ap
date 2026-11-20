@@ -4,6 +4,7 @@ import { dateStr, uuid } from '../utils/utils';
 import { ensureUser, supabase } from './supabase';
 
 /* AsyncStorage is the source of truth (offline-first).
+   Every key is prefixed with the user's id, so two accounts on one phone never mix.
    Every write goes to AsyncStorage first, then syncAll() pushes to Supabase when online. */
 
 const KEY = {
@@ -13,15 +14,21 @@ const KEY = {
     pending: 'pending_deletes',
 };
 
+let currentUid = null;
+const getUid = async () => currentUid ?? (currentUid = await ensureUser());
+supabase?.auth.onAuthStateChange((_e, s) => { currentUid = s?.user?.id ?? null; });
+const scoped = async (key) => `${(await getUid()) ?? 'guest'}:${key}`;
+
 const read = async (key, fallback = []) => {
     try {
-        const v = await AsyncStorage.getItem(key);
+        const v = await AsyncStorage.getItem(await scoped(key));
         return v ? JSON.parse(v) : fallback;
     } catch {
         return fallback;
     }
 };
-const write = (key, value) => AsyncStorage.setItem(key, JSON.stringify(value));
+const write = async (key, value) =>
+    AsyncStorage.setItem(await scoped(key), JSON.stringify(value));
 
 /* ---------------- Notes ---------------- */
 export async function getNotes(mode) {
@@ -33,8 +40,11 @@ export async function getNoteCount(mode) {
     return (await read(KEY.notes(mode))).length;
 }
 
-export async function saveNote({ mode, question, solution }) {
-    const note = { id: uuid(), mode, question, solution, createdAt: new Date().toISOString(), synced: false };
+export async function saveNote({ mode, question, solution, imagePath = null }) {
+    const note = {
+        id: uuid(), mode, question, solution, imagePath,
+        createdAt: new Date().toISOString(), synced: false,
+    };
     const list = await read(KEY.notes(mode));
     await write(KEY.notes(mode), [note, ...list]);
     syncAll();
@@ -132,7 +142,8 @@ export async function syncAll() {
             if (!unsynced.length) continue;
             const rows = unsynced.map((n) => ({
                 id: n.id, user_id: userId, subject: n.mode,
-                question: n.question, solution: n.solution, created_at: n.createdAt,
+                question: n.question, solution: n.solution,
+                image_path: n.imagePath ?? null, created_at: n.createdAt,
             }));
             const { error } = await supabase.from('notes').upsert(rows, { onConflict: 'id' });
             if (!error) {
@@ -180,7 +191,10 @@ export async function syncAll() {
                 const have = new Set(local.map((n) => n.id));
                 const add = cloudNotes
                     .filter((r) => r.subject === s.mode && !have.has(r.id) && !pendingNoteIds.has(r.id))
-                    .map((r) => ({ id: r.id, mode: r.subject, question: r.question, solution: r.solution, createdAt: r.created_at, synced: true }));
+                    .map((r) => ({
+                        id: r.id, mode: r.subject, question: r.question, solution: r.solution,
+                        imagePath: r.image_path, createdAt: r.created_at, synced: true,
+                    }));
                 if (add.length) await write(KEY.notes(s.mode), [...local, ...add]);
             }
         }

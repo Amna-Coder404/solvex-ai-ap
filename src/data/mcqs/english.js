@@ -1,0 +1,143 @@
+// English (Compulsory) Inter Part 1 - Lahore Board past papers (2018 to 2024)
+// repeated: kitni baar past papers mein aaya (field na ho to 1). Naya paper aaye to yahan update karo.
+// Answer key paper mein nahi tha: jawab maine khud hal kiye hain.
+// "// check" wale jawab teacher ya key se zaroor mila lena.
+const V = 'Vocabulary (Meanings)';
+const T = 'Textbook Stories';
+const G = 'Verb Forms';
+
+export default [
+  // ---------- Vocabulary (Meanings) ----------
+  { id: 'e1', chapter: V, question: 'The girl looks at the light and begins sobbing again. (Meaning of "sobbing")', options: ['weeping', 'talking', 'laughing', 'wondering'], correctAnswer: 'weeping' },
+  { id: 'e2', chapter: V, question: 'Did you see that shape in the twisted trees? (Meaning of "twisted")', options: ['thin', 'thick', 'tall', 'knotty'], correctAnswer: 'knotty' },
+  { id: 'e3', chapter: V, question: 'The next two hours seemed to fly. (Meaning of "seemed to fly")', options: ['looked in hurry', 'passed', 'passed quickly', 'expired'], correctAnswer: 'passed quickly' },
+  { id: 'e4', chapter: V, question: 'This is the wrong costume. (Meaning of "costume")', options: ['form', 'side', 'language', 'dress'], correctAnswer: 'dress' },
+  { id: 'e5', repeated: 2, chapter: V, question: "The sweat popped out on the boy's face. (Meaning of \"popped out\")", options: ['came out quickly', 'dried', 'smelt', 'disappeared'], correctAnswer: 'came out quickly' },
+  { id: 'e6', chapter: V, question: 'For someone else, I could easily have wangled ten rupees. (Meaning of "wangled")', options: ['obtained by tricks', 'given', 'got', 'received'], correctAnswer: 'obtained by tricks' },
+  { id: 'e7', chapter: V, question: 'Twice my father stopped to wipe the sweat. (Meaning of "wipe")', options: ['rub away', 'move away', 'take away', 'wash'], correctAnswer: 'rub away' },
+  { id: 'e8', chapter: V, question: 'Paralysed force, gesture without motion. (Meaning of "gesture")', options: ['speed', 'move', 'pace', 'action'], correctAnswer: 'action' },
+  { id: 'e9', chapter: V, question: 'Miss America, I presume. (Meaning of "presume")', options: ['think', 'recollect', 'guess', 'remember'], correctAnswer: 'think' }, // check
+  { id: 'e10', chapter: V, question: 'In his final assault the doctor overpowered the sick girl. (Meaning of "assault")', options: ['attack', 'assay', 'assemblage', 'attempt'], correctAnswer: 'attack' },
+  { id: 'e11', chapter: V, question: 'The Sindhi woman was walking with undulant grace. (Meaning of "undulant")', options: ['like boughs', 'like daffodils', 'like dolls', 'like waves'], correctAnswer: 'like waves' },
+  { id: 'e12', chapter: V, question: "Gorgio's clothes were magnificent. (Meaning of \"magnificent\")", options: ['loose', 'cheap', 'ugly', 'grand'], correctAnswer: 'grand' },
+  { id: 'e13', chapter: V, question: 'I would like poodle hair cut. (Meaning of "poodle")', options: ['curly', 'straight', 'plain', 'wavy'], correctAnswer: 'curly' },
+  { id: 'e14', chapter: V, question: "The flying object seems to dissolve to the living room of Spelding's house. (Meaning of \"dissolve\")", options: ['vanish', 'decorate', 'embellish', 'furnish'], correctAnswer: 'vanish' },
+  { id: 'e15', chapter: V, question: 'The boy who snatched the purse was frail in physique. (Meaning of "frail")', options: ['strong', 'weak', 'fat', 'bulky'], correctAnswer: 'weak' },
+  { id: 'e16', chapter: V, question: 'The cherry is hung with bloom along the boughs. (Meaning of "boughs")', options: ['buds', 'flowers', 'branches', 'stakes'], correctAnswer: 'branches' },
+  { id: 'e17', chapter: V, question: "Jess's father whiffed the smell of the wild dirt into his nostrils. (Meaning of \"whiffed\")", options: ['deepen', 'smelled', 'disgusted', 'emitted'], correctAnswer: 'smelled' },
+  { id: 'e18', chapter: V, question: 'The drumbeater called out to the people. (Meaning of "called out")', options: ['appreciated', 'announced', 'abused', 'scolded'], correctAnswer: 'announced' },
+  { id: 'e19', repeated: 2, chapter: V, question: 'The girl slams the door. (Meaning of "slams")', options: ['buys', 'shuts with a force', 'opens', 'paints'], correctAnswer: 'shuts with a force' },
+  { id: 'e20', chapter: V, question: 'Steward looked embarrassed. (Meaning of "embarrassed")', options: ['successful', 'delighted', 'upset', 'mysterious'], correctAnswer: 'upset' },
+  { id: 'e21', chapter: V, question: 'Old Stephen yelled at the house boy. (Meaning of "yelled")', options: ['screamed', 'called', 'invited', 'summoned'], correctAnswer: 'screamed' },
+  { id: 'e22', chapter: V, question: 'The shop is crowded with stuff not usually found in barber shops. (Meaning of "crowded")', options: ['drowsed', 'soaked', 'packed', 'decorated'], correctAnswer: 'packed' },
+  { id: 'e23', chapter: V, question: 'Your diligent looking discover the lacking. (Meaning of "diligent")', options: ['industrious', 'intelligent', 'perceptible', 'dull'], correctAnswer: 'industrious' },
+  { id: 'e24', chapter: V, question: "The old man came for the crowning of his life's work. (Meaning of \"crowning\")", options: ['aim', 'reward', 'crown', 'introduction'], correctAnswer: 'reward' }, // check
+  { id: 'e25', chapter: V, question: 'Norma made a contemptuous noise. (Meaning of "contemptuous")', options: ['scornful', 'beautiful', 'faint', 'dainty'], correctAnswer: 'scornful' },
+  { id: 'e26', repeated: 2, chapter: V, question: "Sheikh Sa'di is perpetually modern. (Meaning of \"perpetually\")", options: ['casually', 'consciously', 'seriously', 'eternally'], correctAnswer: 'eternally' },
+  { id: 'e27', chapter: V, question: 'Passions yet survive, stamped on these lifeless things. (Meaning of "stamped")', options: ['occupied', 'trusted', 'filled', 'imprinted'], correctAnswer: 'imprinted' },
+  { id: 'e28', chapter: V, question: 'Kreton wore trifle old fashioned dress. (Meaning of "trifle")', options: ['large', 'ordinary', 'short', 'smart'], correctAnswer: 'ordinary' }, // check
+  { id: 'e29', chapter: V, question: 'The girl says "I could hear the water splashing under his feet as he ran". (Meaning of "splashing")', options: ['flowing', 'running', 'splattering', 'moving'], correctAnswer: 'splattering' },
+  { id: 'e30', chapter: V, question: 'The young man looked at guitar with the air of connoisseur. (Meaning of "connoisseur")', options: ['master', 'composer', 'singer', 'musician'], correctAnswer: 'master' },
+  { id: 'e31', chapter: V, question: 'She shuddered, "Alright, take it easy", she said. (Meaning of "shuddered")', options: ['cried', 'kicked', 'laughed', 'trembled'], correctAnswer: 'trembled' },
+  { id: 'e32', chapter: V, question: 'I could not protest to him now. (Meaning of "protest")', options: ['oppose', 'hurt', 'recommend', 'offend'], correctAnswer: 'oppose' },
+  { id: 'e33', chapter: V, question: 'The rocket lid gave a bulging pop. (Meaning of "pop")', options: ['jerk', 'explosive sound', 'soft sound', 'screech'], correctAnswer: 'explosive sound' }, // check
+  { id: 'e34', chapter: V, question: 'She shook him until his teeth rattled. (Meaning of "rattled")', options: ['broke', 'clattered', 'shone', 'removed'], correctAnswer: 'clattered' },
+  { id: 'e35', repeated: 2, chapter: V, question: 'The grave of Hubert withstood the havocs of the flood. (Meaning of "havocs")', options: ['high water', 'aggressiveness', 'calmness', 'destruction'], correctAnswer: 'destruction' },
+  { id: 'e36', chapter: V, question: 'He glances back at the door up. (Meaning of "glances")', options: ['knocks', 'looks', 'puts', 'pulls'], correctAnswer: 'looks' },
+  { id: 'e37', chapter: V, question: 'You represent a hostile race. (Meaning of "hostile")', options: ['friendly', 'black', 'white', 'unfriendly'], correctAnswer: 'unfriendly' },
+  { id: 'e38', repeated: 2, chapter: V, question: 'Roxanna had an assortment of shells. (Meaning of "assortment")', options: ['net', 'skin', 'set', 'cap'], correctAnswer: 'set' },
+  { id: 'e39', repeated: 2, chapter: V, question: 'A wondrous light will fill each dark, round drop. (Meaning of "wondrous")', options: ['dazzling', 'faint', 'blithe', 'wonderful'], correctAnswer: 'wonderful' },
+  { id: 'e40', chapter: V, question: 'Wicks balance flame, a dark dew falls. (Meaning of "wicks")', options: ['strings', 'lamps', 'candles', 'cisterns'], correctAnswer: 'candles' },
+  { id: 'e41', chapter: V, question: 'But now I also had grown furious at a child. (Meaning of "furious")', options: ['angry', 'happy', 'serious', 'sad'], correctAnswer: 'angry' },
+  { id: 'e42', chapter: V, question: 'These animals are of prodigious size. (Meaning of "prodigious")', options: ['thin', 'short', 'small', 'big'], correctAnswer: 'big' },
+  { id: 'e43', chapter: V, question: 'Wozzeck carrying a satchel comes in. (Meaning of "satchel")', options: ['box', 'tools', 'file', 'bag'], correctAnswer: 'bag' },
+  { id: 'e44', chapter: V, question: 'Boundless and bare sands stretch far away. (Meaning of "boundless")', options: ['limited', 'unlimited', 'naked', 'burning'], correctAnswer: 'unlimited' },
+  { id: 'e45', chapter: V, question: 'Later nothing remained but a faint luminosity. (Meaning of "luminosity")', options: ['fog', 'gloom', 'glow', 'dullness'], correctAnswer: 'glow' },
+  { id: 'e46', chapter: V, question: 'The girl lets out a muffled cry. (Meaning of "muffled")', options: ['loud', 'suppressed', 'shrill', 'excited'], correctAnswer: 'suppressed' },
+  { id: 'e47', chapter: V, question: 'On the walls, on the shelves are many odds and ends. (Meaning of "odds and ends")', options: ['bits', 'edibles', 'shears', 'clippers'], correctAnswer: 'bits' },
+  { id: 'e48', chapter: V, question: 'The poor old creature instantly expired. (Meaning of "expired")', options: ['recovered', 'sighed', 'died', 'cried'], correctAnswer: 'died' },
+  { id: 'e49', chapter: V, question: 'Empty of concord is the soul of Europe. (Meaning of "concord")', options: ['disunion', 'quarrel', 'harmony', 'division'], correctAnswer: 'harmony' },
+  { id: 'e50', chapter: V, question: 'He was a good athlete when he came by his wild idea. (Meaning of "wild")', options: ['tame', 'unruly', 'gentle', 'serious'], correctAnswer: 'unruly' },
+  { id: 'e51', chapter: V, question: 'Della had looked at the combs without the least hope of owning them. (Meaning of "owning")', options: ['selling', 'having', 'leaving', 'rejecting'], correctAnswer: 'having' },
+  { id: 'e52', chapter: V, question: 'You simply seethe with unlikely emotions. (Meaning of "seethe")', options: ['freeze', 'boil', 'faint', 'avoid'], correctAnswer: 'boil' },
+  { id: 'e53', chapter: V, question: '"Dark, eh?" mused the captain. (Meaning of "mused")', options: ['laughed', 'sighed', 'muttered', 'thought'], correctAnswer: 'thought' },
+  { id: 'e54', chapter: V, question: 'Radiant as lantern they forget. (Meaning of "radiant")', options: ['shining', 'red', 'coloured', 'beautiful'], correctAnswer: 'shining' },
+  { id: 'e55', chapter: V, question: 'She was short and bulky. (Meaning of "bulky")', options: ['beautiful', 'smart', 'fat', 'normal'], correctAnswer: 'fat' },
+  { id: 'e56', chapter: V, question: 'The storm has probably slowed it down. (Meaning of "probably")', options: ['suddenly', 'practically', 'surely', 'presumably'], correctAnswer: 'presumably' },
+  { id: 'e57', chapter: V, question: 'The slave had never experienced any calamity. (Meaning of "calamity")', options: ['sea', 'boat', 'disaster', 'swimming'], correctAnswer: 'disaster' },
+  { id: 'e58', chapter: V, question: 'Life is full of care. (Meaning of "care")', options: ['joy', 'happiness', 'laziness', 'worry'], correctAnswer: 'worry' },
+  { id: 'e59', chapter: V, question: 'Jim and the chain both had quietness and value. (Meaning of "quietness")', options: ['softness', 'calmness', 'irrational', 'meaningfulness'], correctAnswer: 'calmness' },
+  { id: 'e60', chapter: V, question: 'Kreton says that he loves to gad about. (Meaning of "gad")', options: ['run', 'shoot', 'talk', 'wander'], correctAnswer: 'wander' },
+  { id: 'e61', chapter: V, question: 'He was drenched in the hotness of fear. (Meaning of "drenched")', options: ['soaked', 'pushed', 'jumped', 'found'], correctAnswer: 'soaked' },
+  { id: 'e62', chapter: V, question: 'The sunlight was perverted. (Meaning of "perverted")', options: ['fierce', 'lovely', 'burning', 'diverted'], correctAnswer: 'diverted' },
+  { id: 'e63', chapter: V, question: 'This visit was all rather impromptu. (Meaning of "impromptu")', options: ['planned', 'quick', 'oval', 'without preparation'], correctAnswer: 'without preparation' },
+  { id: 'e64', chapter: V, question: 'Arthur looked astounded. (Meaning of "astounded")', options: ['trembled', 'surprised', 'happy', 'overjoyed'], correctAnswer: 'surprised' },
+  { id: 'e65', chapter: V, question: 'The face of the sick girl was flushed. (Meaning of "flushed")', options: ['red', 'yellow', 'pale', 'darkened'], correctAnswer: 'red' },
+  { id: 'e66', chapter: V, question: "No time to turn at beauty's glance. (Meaning of \"glance\")", options: ['glimpse', 'stare', 'grace', 'snare'], correctAnswer: 'glimpse' },
+  { id: 'e67', chapter: V, question: 'The door rattles viciously. (Meaning of "viciously")', options: ['violently', 'gently', 'lovely', 'strangely'], correctAnswer: 'violently' },
+  { id: 'e68', chapter: V, question: 'Miss McCutcheon is determined to teach there. (Meaning of "determined")', options: ['resolute', 'fainted', 'avoided', 'boiled'], correctAnswer: 'resolute' },
+  { id: 'e69', repeated: 2, chapter: V, question: 'Maulvi Abul had bulging eyes. (Meaning of "bulging")', options: ['narrow', 'small', 'swelling', 'tiny'], correctAnswer: 'swelling' },
+  { id: 'e70', chapter: V, question: 'He picked up a discarded newspaper that lies on the seat beside him. (Meaning of "discarded")', options: ['published', 'national', 'useless', 'ancient'], correctAnswer: 'useless' },
+  { id: 'e71', chapter: V, question: 'Sheepdogs slumber on with paws across. (Meaning of "slumber")', options: ['bark', 'hunt', 'look', 'sleep'], correctAnswer: 'sleep' },
+  { id: 'e72', chapter: V, question: 'Let us not wallow in the valley of despair. (Meaning of "wallow")', options: ['roll out', 'wait', 'hurry', 'hate'], correctAnswer: 'roll out' }, // check
+  { id: 'e73', chapter: V, question: 'The flying object which has given rise to so much irresponsible conjecture is nothing more than a meteor. (Meaning of "conjecture")', options: ['fear', 'guess', 'doubt', 'destruction'], correctAnswer: 'guess' },
+  { id: 'e74', chapter: V, question: "And next time, do not make the mistake of latching onto my pocketbook nor anybody else's. (Meaning of \"latching\")", options: ['tearing', 'jumping', 'clinging', 'stealing'], correctAnswer: 'clinging' },
+  { id: 'e75', chapter: V, question: 'Its sweet pungent smell lingered in the village lanes whenever he walked through them. (Meaning of "lingered")', options: ['disappeared', 'stayed', 'changed', 'hovered'], correctAnswer: 'stayed' },
+  { id: 'e76', chapter: V, question: 'She glared at the carton as she unlocked the door. (Meaning of "glared")', options: ['frowned', 'gazed', 'smiled', 'mocked'], correctAnswer: 'frowned' },
+  { id: 'e77', chapter: V, question: 'No time to wait till her mouth can enrich that smile. (Meaning of "enrich")', options: ['disprove', 'enhance', 'lessen', 'spoil'], correctAnswer: 'enhance' },
+  { id: 'e78', chapter: V, question: 'You may turn out to be the one man who will bring merriment to the tired old human heart. (Meaning of "merriment")', options: ['joy', 'success', 'stress', 'fear'], correctAnswer: 'joy' },
+  { id: 'e79', chapter: V, question: 'I was met by the mother, a big startled looking woman, very clean and apologetic. (Meaning of "apologetic")', options: ['decent', 'soft spoken', 'regretful', 'neat'], correctAnswer: 'regretful' },
+
+  // ---------- Textbook Stories ----------
+  { id: 'e80', chapter: T, question: 'Who is "I" in the story (The Use of Force)?', options: ['doctor', 'father', 'mother', 'child'], correctAnswer: 'doctor' },
+  { id: 'e81', chapter: T, question: 'Jim was only ___ and with a family to take care of.', options: ['twenty', 'twenty one', 'twenty two', 'twenty four'], correctAnswer: 'twenty two' },
+  { id: 'e82', chapter: T, question: 'Jim bought a gift of ___.', options: ['watch', 'shoes', 'necklace', 'combs'], correctAnswer: 'combs' },
+  { id: 'e83', chapter: T, question: 'Mrs. Safronie offered Della ___ dollars to buy her hair.', options: ['ten', 'fifteen', 'twenty', 'twenty five'], correctAnswer: 'twenty' },
+  { id: 'e84', chapter: T, question: 'The slave had never experienced any ___.', options: ['pleasure', 'calamity', 'rule', 'war'], correctAnswer: 'calamity' },
+  { id: 'e85', chapter: T, question: 'If people were smart they would not be out ___.', options: ['on a day like this', 'on a holiday', 'on a tour', 'on a night like this'], correctAnswer: 'on a night like this' }, // check
+  { id: 'e86', chapter: T, question: 'Mr. Hubert was surprised when the police officer asked him to accompany him to ___.', options: ['the police station', "the mayor's office", 'the court', 'the airport'], correctAnswer: 'the police station' }, // check
+  { id: 'e87', chapter: T, question: 'Who saved the girl finally?', options: ['storm', 'dog', 'bus', 'second man'], correctAnswer: 'second man' }, // check
+  { id: 'e88', chapter: T, question: 'The girl saw in the flash of lightning:', options: ['a dog', 'a bus', 'a car', "a man's face"], correctAnswer: "a man's face" }, // check
+  { id: 'e89', chapter: T, question: 'Where did the spaceship land?', options: ['on the roof', 'in the rose garden', 'in the ground', 'on the hill'], correctAnswer: 'in the rose garden' }, // check
+  { id: 'e90', chapter: T, question: 'The spaceship was ___.', options: ['oval', 'round', 'elliptical', 'square'], correctAnswer: 'oval' }, // check
+  { id: 'e91', chapter: T, question: 'The drab interior of a bus station along a deserted highway somewhere in the:', options: ['west', 'mid-west', 'middle east', 'north'], correctAnswer: 'mid-west' }, // check
+
+  // ---------- Verb Forms ----------
+  { id: 'e92', chapter: G, question: 'When the college bell rang, I ___ breakfast.', options: ['was taking', 'am taking', 'took', 'take'], correctAnswer: 'was taking' },
+  { id: 'e93', repeated: 2, chapter: G, question: 'Would that I ___ rich?', options: ['was', 'have been', 'were', 'could be'], correctAnswer: 'were' },
+  { id: 'e94', chapter: G, question: 'The beggar prayed that I ___ long.', options: ['may live', 'might live', 'will live', 'lived'], correctAnswer: 'may live' },
+  { id: 'e95', chapter: G, question: 'He ___ me yesterday.', options: ['meet', 'meets', 'met', 'had met'], correctAnswer: 'met' },
+  { id: 'e96', chapter: G, question: 'You had better ___ to your doctor.', options: ['go', 'went', 'gone', 'have gone'], correctAnswer: 'go' },
+  { id: 'e97', repeated: 2, chapter: G, question: 'Charity ___ at home.', options: ['being', 'began', 'has begun', 'begins'], correctAnswer: 'begins' },
+  { id: 'e98', chapter: G, question: 'This book was ___ two days ago.', options: ['published', 'publish', 'will publish', 'publishes'], correctAnswer: 'published' },
+  { id: 'e99', chapter: G, question: 'They ___ their work by tomorrow.', options: ['will has completed', 'had completed', 'will have completed', 'will complete'], correctAnswer: 'will have completed' },
+  { id: 'e100', chapter: G, question: 'Quaid-e-Azam ___ very hard.', options: ['works', 'work', 'worked', 'will work'], correctAnswer: 'worked' },
+  { id: 'e101', chapter: G, question: 'They ___ their meals before the guests arrived.', options: ['will have taken', 'had taken', 'have taken', 'will take'], correctAnswer: 'had taken' },
+  { id: 'e102', chapter: G, question: 'Work hard lest you ___.', options: ['should fail', 'will fail', 'can fail', 'may be failed'], correctAnswer: 'should fail' },
+  { id: 'e103', chapter: G, question: 'When the phone rang, I ___ tea.', options: ['is taking', 'taking', 'will take', 'was taking'], correctAnswer: 'was taking' },
+  { id: 'e104', chapter: G, question: 'Old age ___ up with everyone in the end.', options: ['catch', 'caught', 'catches', 'have caught'], correctAnswer: 'catches' },
+  { id: 'e105', chapter: G, question: 'Honesty never ___ wasted.', options: ['go', 'goes', 'went', 'gone'], correctAnswer: 'goes' },
+  { id: 'e106', chapter: G, question: 'A few days ago, they ___ us.', options: ['had met', 'met', 'meet', 'will meet'], correctAnswer: 'met' },
+  { id: 'e107', chapter: G, question: 'He ___ home recently.', options: ['has reached', 'shall reach', 'reached', 'had reached'], correctAnswer: 'has reached' },
+  { id: 'e108', chapter: G, question: 'I ___ Lahore, the next week.', options: ['had visited', 'am visiting', 'should be visiting', 'have visited'], correctAnswer: 'am visiting' },
+  { id: 'e109', chapter: G, question: 'I ___ him yesterday.', options: ['see', 'saw', 'have seen', 'had seen'], correctAnswer: 'saw' },
+  { id: 'e110', chapter: G, question: 'She always ___ the truth.', options: ['is speaking', 'will speak', 'speaks', 'spoken'], correctAnswer: 'speaks' },
+  { id: 'e111', chapter: G, question: 'The boys ___ since morning.', options: ['are studying', 'have been studying', 'is studying', 'studies'], correctAnswer: 'have been studying' },
+  { id: 'e112', chapter: G, question: 'They ___ in the examination next year.', options: ['appeared', 'have appeared', 'will appear', 'appear'], correctAnswer: 'will appear' },
+  { id: 'e113', chapter: G, question: 'A black sheep ___ the whole flock.', options: ['spoil', 'spoils', 'spoiled', 'had spoiled'], correctAnswer: 'spoils' },
+  { id: 'e114', chapter: G, question: 'Time once gone cannot be ___.', options: ['recalled', 'recall', 'recalling', 'recalls'], correctAnswer: 'recalled' },
+  { id: 'e115', chapter: G, question: 'Would that Ayesha ___ the prize.', options: ['wins', 'has won', 'had won', 'will win'], correctAnswer: 'had won' },
+  { id: 'e116', repeated: 2, chapter: G, question: 'It started to rain while we ___ cricket.', options: ['are playing', 'were playing', 'will be playing', 'play'], correctAnswer: 'were playing' },
+  { id: 'e117', chapter: G, question: 'Amna ___ an apple when I saw her.', options: ['was eating', 'will be eating', 'is eating', 'eaten'], correctAnswer: 'was eating' },
+  { id: 'e118', chapter: G, question: 'They usually ___ to Karachi in summer.', options: ['goes', 'went', 'will go', 'go'], correctAnswer: 'go' },
+  { id: 'e119', chapter: G, question: 'I wish he ___ the match!', options: ['will win', 'has won', 'may win', 'had won'], correctAnswer: 'had won' },
+  { id: 'e120', chapter: G, question: 'They ___ until they die.', options: ['fought', 'will fight', 'was fighting', 'had fought'], correctAnswer: 'will fight' },
+  { id: 'e121', chapter: G, question: 'The sun ___ in the east.', options: ['rises', 'rose', 'risen', 'rise'], correctAnswer: 'rises' },
+  { id: 'e122', chapter: G, question: 'He ___ me last week.', options: ['meet', 'meets', 'met', 'has met'], correctAnswer: 'met' },
+  { id: 'e123', chapter: G, question: 'If I ___ money, I would have bought a car.', options: ['get', 'got', 'have got', 'had got'], correctAnswer: 'had got' },
+  { id: 'e124', chapter: G, question: 'Two and two ___ four.', options: ['makes', 'make', 'making', 'has made'], correctAnswer: 'make' },
+  { id: 'e125', chapter: G, question: 'He behaved as if he ___ a king.', options: ['is', 'was', 'has been', 'were'], correctAnswer: 'were' },
+  { id: 'e126', chapter: G, question: 'He would ___ the examination next year.', options: ['take', 'took', 'taken', 'taking'], correctAnswer: 'take' },
+  { id: 'e127', chapter: G, question: 'One of the students ___ reading the lesson aloud.', options: ['are', 'has', 'is', 'were'], correctAnswer: 'is' },
+  { id: 'e128', chapter: G, question: 'The traveller ___ home last week.', options: ['returning', 'return', 'returns', 'returned'], correctAnswer: 'returned' },
+];

@@ -1,12 +1,12 @@
 import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
-import { ScrollView, Text, View } from 'react-native';
-import { Card, Enter, IconBadge } from '../../components/UI';
-import { SUBJECTS } from '../../config';
-import { colors, getSubjectTheme } from '../../constants/theme';
-import { getNoteCount, syncAll } from '../../services/storage';
-import { st } from '../../styles/SavedNotesScreen.style';
+import { FlatList, Text, View } from 'react-native';
+import { Card, Enter, IconBadge } from '../../../components/UI';
+import { SUBJECTS } from '../../../config';
+import { colors, getSubjectTheme } from '../../../constants/theme';
+import { getNoteCount, syncAll } from '../../../services/storage';
+import { st } from '../../../styles/SavedNotesScreen.style';
 
 export default function SavedNotesScreen() {
   const [counts, setCounts] = useState({});
@@ -26,12 +26,20 @@ export default function SavedNotesScreen() {
   );
 
   return (
-    <ScrollView style={{ backgroundColor: colors.bg }} contentContainerStyle={st.scroll}>
-      {SUBJECTS.map((s, i) => {
+    <FlatList
+      data={SUBJECTS}
+      keyExtractor={(item) => item.mode}
+      style={{ backgroundColor: colors.bg }}
+      contentContainerStyle={st.scroll}
+      showsVerticalScrollIndicator={false}
+      renderItem={({ item: s, index: i }) => {
         const t = getSubjectTheme(s.mode);
         return (
-          <Enter key={s.mode} index={i}>
-            <Card onPress={() => router.push({ pathname: '/NotesList', params: { mode: s.mode } })} style={st.row}>
+          <Enter index={i}>
+            <Card
+              onPress={() => router.push({ pathname: '/NotesList', params: { mode: s.mode } })}
+              style={st.row}
+            >
               <IconBadge name={s.icon} color={t.fg} bg={t.bg} size={50} />
               <View style={{ flex: 1 }}>
                 <Text style={st.title}>{s.notesLabel}</Text>
@@ -44,7 +52,7 @@ export default function SavedNotesScreen() {
             </Card>
           </Enter>
         );
-      })}
-    </ScrollView>
+      }}
+    />
   );
 }

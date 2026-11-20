@@ -23,6 +23,9 @@ import { s } from '../styles/SolverChatScreen.style';
 import { uuid } from '../utils/utils';
 
 
+import { useAuth } from '../hooks/useProfile';
+import { uploadNoteImage } from '../services/images';
+import { buildStudentContext } from '../services/studentContext';
 
 
 export default function SolverChatScreen() {
@@ -33,6 +36,8 @@ export default function SolverChatScreen() {
   const headerHeight = useHeaderHeight();
   const insets = useSafeAreaInsets();
   const listRef = useRef(null);
+
+  const { user, profile } = useAuth();
 
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -66,11 +71,25 @@ export default function SolverChatScreen() {
     const base64 = image?.base64;
     setImage(null);
     setLoading(true);
+
+    const uploadP = base64 && user
+      ? uploadNoteImage(user.id, base64).catch(() => null)
+      : Promise.resolve(null);
+
     try {
-      const answer = await solveQuestion({ mode, text, imageBase64: base64, history });
+      const needsContext = /progress|weak|plan|study|score|improve|start|join|since|cover|today|how much|how many|kab|kitna|kitni|aaj/i.test(text);
+      const studentContext = needsContext ? await buildStudentContext(profile, user) : '';
+      const [answer, imagePath] = await Promise.all([
+        solveQuestion({
+          mode, text, imageBase64: base64, history,
+          studentName: profile?.name ?? '',
+          studentContext
+        }),
+        uploadP,
+      ]);
       setMessages((m) => [
         ...m,
-        { id: uuid(), role: 'assistant', text: answer, question: text || '(Image question)', saved: false },
+        { id: uuid(), role: 'assistant', text: answer, question: text || '(Image question)', imagePath, saved: false },
       ]);
     } catch (e) {
       setMessages((m) => [...m, { id: uuid(), role: 'assistant', text: `⚠️ ${e.message}`, error: true }]);
@@ -81,7 +100,7 @@ export default function SolverChatScreen() {
   };
 
   const save = async (msg) => {
-    await saveNote({ mode, question: msg.question, solution: msg.text });
+    await saveNote({ mode, question: msg.question, solution: msg.text, imagePath: msg.imagePath });
     setMessages((m) => m.map((x) => (x.id === msg.id ? { ...x, saved: true } : x)));
   };
 

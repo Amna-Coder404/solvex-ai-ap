@@ -22,4 +22,18 @@ export function shuffle(arr) {
   return a;
 }
 
-export const formatDateTime = (iso) => new Date(iso).toLocaleString();
+export const formatDateTime = (date) => {
+  if (!date) return '';
+
+  const parsedDate = new Date(date);
+
+  if (Number.isNaN(parsedDate.getTime())) return '';
+
+  return parsedDate.toLocaleString('en-US', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+};

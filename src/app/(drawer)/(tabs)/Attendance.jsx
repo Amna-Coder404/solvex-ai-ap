@@ -2,11 +2,11 @@ import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { FlatList, Text, View } from 'react-native';
-import { Button, Enter } from '../../components/UI';
-import { colors } from '../../constants/theme';
-import { computeStreak, getAttendance, markPresent, syncAll } from '../../services/storage';
-import { st } from '../../styles/AttendanceScreen.style';
-import { dateStr } from '../../utils/utils';
+import { Button, Enter } from '../../../components/UI';
+import { colors } from '../../../constants/theme';
+import { computeStreak, getAttendance, markPresent, syncAll } from '../../../services/storage';
+import { st } from '../../../styles/AttendanceScreen.style';
+import { dateStr } from '../../../utils/utils';
 
 export default function AttendanceScreen() {
   const [dates, setDates] = useState([]);
@@ -44,6 +44,7 @@ export default function AttendanceScreen() {
               icon="hand-right-outline"
               onPress={onPress}
               style={[st.btn, { shadowOpacity: 0, elevation: 0 }]}
+              textStyle={st.btnText}
             />
           )}
         </View>

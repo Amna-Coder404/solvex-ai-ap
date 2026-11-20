@@ -14,6 +14,9 @@ export const SUBJECTS = [
     { mode: 'physics', label: 'Physics', notesLabel: 'phy_notes', icon: 'planet-outline' },
     { mode: 'computer', label: 'Computer', notesLabel: 'comp_notes', icon: 'laptop-outline' },
     { mode: 'english', label: 'English', notesLabel: 'eng_notes', icon: 'book-outline' },
+    { mode: 'urdu', label: 'اردو', notesLabel: 'urdu_notes', icon: 'language-outline', rtl: true, tutor: false, notes: false },
 ];
 
 export const getSubject = (mode) => SUBJECTS.find((s) => s.mode === mode) || SUBJECTS[0];
+export const TUTOR_SUBJECTS = SUBJECTS.filter((s) => s.tutor !== false);
+export const NOTE_SUBJECTS = SUBJECTS.filter((s) => s.notes !== false);
